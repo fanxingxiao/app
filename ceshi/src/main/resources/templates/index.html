@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* css 代码  */
+        </style>
+        <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+        <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+        <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    </head>
+    <body>
+        <div id="container" style="min-width:400px;height:400px"></div>
+        <script>
+       $(function () {
+    	   $.get("/ShengZhanBi/findBySheng?nian=2017", function(data) {
+			var ranges = [];
+			$.each(data, function(index, value) {
+				var range = [];
+				var sheng = value.sheng;
+				var zhanbi = value.zhanbi/100000;
+				range.push(sheng);
+				range.push(zhanbi);
+				ranges.push(range);
+			}); 
+           $('#container').highcharts({
+               chart: {
+                   plotBackgroundColor: null,
+                   plotBorderWidth: null,
+                   plotShadow: false
+               },
+               title: {
+                   text: '2017年该某站点击量统计各省市所占比例'
+               },
+               tooltip: {
+                   headerFormat: '{series.name}<br>',
+                   pointFormat: '{point.name}: <b>{point.percentage:.1f}%</b>'
+               },
+               plotOptions: {
+                   pie: {
+                       allowPointSelect: true,
+                       cursor: 'pointer',
+                       dataLabels: {
+                           enabled: true,
+                           format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                           style: {
+                               color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                           }
+                       }
+                   }
+               },
+               series: [{
+                   type: 'pie',//line(线性图)
+                   name: '该网站点击量统计各省市所占比例',
+                   data: ranges
+               }]
+           });
+           });
+           })
+        </script>
+    </body>
+</html>
+​

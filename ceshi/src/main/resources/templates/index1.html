@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+    <head>
+        <meta charset="utf-8"><link rel="icon" href="https://static.jianshukeji.com/highcharts/images/favicon.ico">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+            /* css 代码  */
+        </style>
+        <script src="https://img.hcharts.cn/jquery/jquery-1.8.3.min.js"></script>
+        <script src="https://img.hcharts.cn/highcharts/highcharts.js"></script>
+        <script src="https://img.hcharts.cn/highcharts/modules/exporting.js"></script>
+        <script src="https://img.hcharts.cn/highcharts-plugins/highcharts-zh_CN.js"></script>
+    </head>
+    <body>
+        <div id="container" style="min-width:400px;height:400px"></div>
+        <script>
+       $(function () {
+    	   $.get("/dianji/findByDate?date=2017", function(data) {
+			var ranges = [];
+			$.each(data, function(index, value) {
+				var range = [];
+				var sheng = value.time;
+				var zhanbi = value.dianji/100000;
+				range.push(sheng);
+				range.push(zhanbi);
+				ranges.push(range);
+			}); 
+           $('#container').highcharts({
+               chart: {
+                   plotBackgroundColor: null,
+                   plotBorderWidth: null,
+                   plotShadow: false
+               },
+               title: {
+                   text: '2017年该某站点击量统计各省市所占比例'
+               },
+               tooltip: {
+   	        	shared: true,
+                   crosshairs: true,
+                   // 时间格式化字符
+                   // 默认会根据当前的数据点间隔取对应的值
+                   // 当前图表中数据点间隔为 1天，所以配置 day 值即可
+                   dateTimeLabelFormats: {
+                       day: ''
+                   }
+   	        },
+               plotOptions: {
+            	   line: {
+   	                allowPointSelect: true,
+   	                cursor: 'pointer',
+   	                dataLabels: {
+   	                    enabled: true,
+   	                    format: '{point.x}'+"时:占"+' {point.y:.0f}个百分比',
+   	                    style: {
+   	                        color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+   	                    }
+   	                }
+   	            }
+               },
+               series: [{
+                   type: 'line',//line(线性图)
+                   name: '该网站点击量统计各省市所占比例',
+                   data: ranges
+               }]
+           });
+           });
+           })
+        </script>
+    </body>
+</html>
+​
