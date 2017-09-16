@@ -1,0 +1,72 @@
+@charset "utf-8";
+/*Initialization style*/
+html,body,form,input,select,textarea,div,p,h1,h2,h3,h4,h5,h6,p,ul,ol,li,form,img,dl,dt,dd,table,th,td,blockquote,fieldset,div,strong,label,em{margin:0;padding:0;}
+ul,li,dl,dt,dd{list-style:none;}
+/*a:link,a:visited{text-decoration:none;outline:none;cursor: pointer;}*/
+
+/*public scroll*/
+
+.scroll{max-width:800px;}
+.scroll_box{overflow:hidden;visibility:hidden;position:relative;}
+.scroll_wrap{overflow:hidden; position:relative;} 
+.scroll_wrap li{position:relative;display:block;width:100%;float:left;}
+.scroll_wrap li a{display:block;margin:0 auto;position:relative;}
+/*.scroll_position{position:absolute;left:45%;z-index:400px;bottom:14px;}*/
+.scroll_position li{display:inline-block;width:32%;height:6px;background:#cbcbcb;float:left;}
+.scroll_position li a{font-size:0;}
+.scroll_position li.on{background-color:#C30D23;}
+.scroll_position_bg{
+	font-size:0.28rem;
+	background-size:1px 0.58rem;
+	position:absolute;
+	height:0.58rem;
+	line-height:0.58rem;
+	background-color: rgba(0,0,0,0.5);
+	bottom:0px;
+	width:100%;
+	overflow:hidden;
+	}
+.scroll_position_bg .block{
+	margin:0px 0.22rem;
+}
+.scroll_position_bg .count{
+	font-size:0.32rem;
+	margin-top:0.08rem;
+	height:0.4rem;
+	line-height:0.4rem;
+	float:right;
+	text-align:left;
+	color:#FFF;
+	width:10%;
+}
+.scroll_position_bg .count div{
+	width:0.58rem; 
+	text-align:center;
+	height:0.4rem;
+	line-height:0.4rem;
+}
+.scroll_position_bg .title{
+	height:0.58rem;
+	line-height:0.58rem;
+	float:right;
+	width:88%;
+	overflow:hidden;
+	color:#FFF;
+}
+.new_img_span{
+	display:none;
+}
+/*public*/
+.left{float:left;}
+.right{float:right;}
+.relative{position:relative;left:0;top:0;}
+.clearfix:before,.clearfix:after{content:"";display:table;}
+.clearfix:after{clear:both;}
+.clearfix{zoom:1;}
+.opacity6{ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=60)"; /* ie8  */filter:alpha(opacity=60);    /* ie5-7  */opacity:0.6;/* css standard, currently it works in most modern browsers  */}
+.opacity8{ -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /* ie8  */filter:alpha(opacity=80);    /* ie5-7  */opacity:0.8;/* css standard, currently it works in most modern browsers  */}
+.app_center{width:100%;min-width:320px;margin-left:auto;margin-right:auto;}
+.red{color:red;}
+.c_999{color:#999;}
+.pt10{padding-top:10px;}
+.hide{display:none;}

@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<script type="text/javascript" async="" charset="utf-8"
+	src="index/core.php"></script>
+<script type="text/javascript" charset="utf-8" async=""
+	src="index/dplus.php"></script>
+<script type="text/javascript" src="index/tingyun-rum-20170906.js"></script>
+<title>手机中国网</title>
+<meta property="fb:pages" content="1192132897530150">
+<meta name="viewport" id="viewport"
+	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+<meta name="description"
+	content="中国互联网新闻中心，国家重点新闻网站，拥有十个语种独立新闻采编、报道和发布权；第一时间报道国家重大新闻事件；国情信息库服务全球读者了解中国；国务院新闻办公室发布会独家网络直播发布网站；拥有国内外顶级学者专家资源，独家编发各种相关政策解读。">
+
+<link rel="apple-touch-icon"
+	href="http://m.china.com.cn/images/Icon-72.jpg">
+<link rel="apple-touch-icon" sizes="72x72"
+	href="http://m.china.com.cn/images/Icon-72.jpg">
+<link rel="apple-touch-icon" sizes="114x114"
+	href="http://m.china.com.cn/images/chinaicon600.jpg">
+
+<link href="index/index.css" rel="stylesheet" type="text/css">
+<link href="index/swiper.css" rel="stylesheet" type="text/css">
+<link href="index/layout.css" type="text/css" rel="stylesheet">
+
+<!-- jquery是3.2.1版本 -->
+<script src="index/jquery-1.js" type="text/javascript"></script>
+<script src="index/jquery.js"></script>
+<script src="index/hhSwipe.js"></script>
+<script src="index/swiper-3.js"></script>
+<script src="index/public.js"></script>
+<style>
+.m_ad_iframe2 {
+	height: 1.6rem;
+	width: 5.9rem;
+	margin: 0.28rem auto auto 0.08rem;
+}
+
+.m_ad_iframe3 {
+	height: 1.95rem;
+	width: 5.9rem;
+	margin: 0.1rem auto auto 0.08rem;
+}
+</style>
+<script type="text/javascript">
+        $(document).ready(function(){
+            var range = 50;             //距下边界长度/单位px  
+            var currentPage = 1;           //插入元素高度/单位px  
+            var maxPage = "2168";            //设置加载最多次数   
+            var totalheight = 0;
+    		var timestamp=new Date().getTime();
+    		   
+            $(window).scroll(function(){
+                var srollPos = $(window).scrollTop();    //滚动条距顶部距离(页面超出窗口的高度)  
+                  
+                totalheight = parseFloat($(window).height()) + parseFloat(srollPos); 
+    			//console.log("滚动条到顶部的垂直高度: "+$(document).scrollTop());
+                //console.log("页面的文档高度 ："+$(document).height());   
+               
+                if(($(document).height()-range) <= totalheight) {
+    				if(currentPage<=maxPage){
+    					currentPage=currentPage+1;
+    					var url = "http://m.china.com.cn/1/wm2/3/list_3_"+currentPage+"_20.htm";
+    					var loadtime=new Date().getTime();
+    					
+    					if(loadtime-timestamp>=300){
+    						console.log(loadtime)
+    						timestamp=loadtime;
+    						$.get(url, {},loadMoreResult);
+    						if(currentPage==maxPage){
+    							if($("#footer").hasClass("hidden")){
+							        $("#footer").removeClass("hidden");
+    							}
+    						}
+    					}
+    					
+    				}else{
+    					
+    					if($("#footer").hasClass("hidden")){
+    						$("#footer").removeClass("hidden");
+    					}
+    				}
+                }
+            });
+
+            //m站上专题后，打开专题类型的文章，跳转专题
+            $('#list li a').click(function(){
+                window.localStorage.openZtFlag = 'true|' + new Date().getTime() + '|' + '3';
+            });
+        });
+    		
+        function loadMoreResult(html,state){
+            if(state=="success"){
+                $("#list").append(html);
+                if(window.dplus && dplus.track){
+                    dplus.track("loadNextPage",{
+                        occurPage: 'mListPage',
+                        nodeTitle: "推荐",
+                        nodeId: "3"
+                    },function(){
+                      console.log('d-plus 送达.');
+                    });
+                }
+                //m站上专题后，打开专题类型的文章，跳转专题
+                $('#list li a').click(function(){
+                    window.localStorage.openZtFlag = 'true|' + new Date().getTime() + '|' + '3';
+                });
+            }
+        }
+    </script>
+<!-- start Dplus -->
+<script type="text/javascript">!function(a,b){if(!b.__SV){var c,d,e,f;window.dplus=b,b._i=[],b.init=function(a,c,d){function g(a,b){var c=b.split(".");2==c.length&&(a=a[c[0]],b=c[1]),a[b]=function(){a.push([b].concat(Array.prototype.slice.call(arguments,0)))}}var h=b;for("undefined"!=typeof d?h=b[d]=[]:d="dplus",h.people=h.people||[],h.toString=function(a){var b="dplus";return"dplus"!==d&&(b+="."+d),a||(b+=" (stub)"),b},h.people.toString=function(){return h.toString(1)+".people (stub)"},e="disable track track_links track_forms register unregister get_property identify clear set_config get_config get_distinct_id track_pageview register_once track_with_tag time_event people.set people.unset people.delete_user".split(" "),f=0;f<e.length;f++)g(h,e[f]);b._i.push([a,c,d])},b.__SV=1.1,c=a.createElement("script"),c.type="text/javascript",c.charset="utf-8",c.async=!0,c.src="//w.cnzz.com/dplus.php?id=1262131232",d=a.getElementsByTagName("script")[0],d.parentNode.insertBefore(c,d)}}(document,window.dplus||[]),dplus.init("1262131232");</script>
+<!-- end Dplus -->
+<script type="text/javascript">
+        // console.log('===========>:'+'推荐,3');
+        function downDPlusEvent(status){
+          if(window.dplus && dplus.track){
+            dplus.track("clickDownBtn",{
+              status: status,
+            },function(){
+              console.log('d-plus 送达.');
+            });
+          }
+        }
+        $(function(){
+          if(window.dplus && dplus.track){
+            dplus.track("openListPage",{
+              nodeTitle: "推荐",
+              nodeId: "3"
+            },function(){
+              console.log('d-plus 送达.');
+            });
+          }
+        });
+    </script>
+    <script language="javascript" src="index/jquery.js"></script>
+	<script src="path.js"></script>
+	<script>
+    	$(function(){
+    		$.get(path.user+"/getUser",function(data){
+    			if(data==null){
+    				alert("请先登录");
+    				location.href="login.html";
+    			}
+    		},"jsonp");
+    	});
+    </script>
+</head>
+<body>
+	<div class="hidden">
+		<img src="index/chinaicon720.jpg">
+	</div>
+	<div class="page">
+
+		<div id="nav" class="swiper-container nav swiper-container-horizontal">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide lhfont swiper-slide-active"
+					onclick="javascript:location.href='http://m.china.com.cn/';"
+					style="font-weight: bold; opacity: 1;">推荐</div>
+				<div class="swiper-slide swiper-slide-next"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/39/list_39_1_20.htm?tag=2';"
+					style="">要闻</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://wx.china.cn/scene/content/list/100000003?tag=3';"
+					style="">直播</div>
+				<div class="swiper-slide word3"
+					onclick="javascript:location.href='http://wx.china.cn/scene/content/list/100000002?tag=4';"
+					style="">新闻眼</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/6/list_6_1_20.htm?tag=5';"
+					style="">观点</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/18/list_18_1_20.htm?tag=6';"
+					style="">国际</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/8/list_8_1_20.htm?tag=7';"
+					style="">军事</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/11/list_11_1_20.htm?tag=8';"
+					style="">财经</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/34/list_34_1_20.htm?tag=9';"
+					style="">图片</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/20/list_20_1_20.htm?tag=10';"
+					style="">社会</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/9/list_9_1_20.htm?tag=11';"
+					style="">旅游</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/26/list_26_1_20.htm?tag=12';"
+					style="">扶贫</div>
+				<div class="swiper-slide word5"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/13234/list_13234_1_20.htm?tag=13';"
+					style="">中国3分钟</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/274629/list_274629_1_20.htm?tag=14';"
+					style="">帧像</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/13229/list_13229_1_20.htm?tag=15';"
+					style="">世相</div>
+				<div class="swiper-slide word3"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/13174/list_13174_1_20.htm?tag=16';"
+					style="">中外观</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/17629/list_17629_1_20.htm?tag=17';"
+					style="">呈现</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/10/list_10_1_20.htm?tag=18';"
+					style="">艺术</div>
+				<div class="swiper-slide word4"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/202031/list_202031_1_20.htm?tag=19';"
+					style="">Hi 中国人</div>
+				<div class="swiper-slide word4"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/245574/list_245574_1_20.htm?tag=20';"
+					style="">中国精神</div>
+				<div class="swiper-slide word3"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/245573/list_245573_1_20.htm?tag=21';"
+					style="">碰词儿</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/12/list_12_1_20.htm?tag=22';"
+					style="">教育</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/29/list_29_1_20.htm?tag=23';"
+					style="">娱乐</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/15/list_15_1_20.htm?tag=24';"
+					style="">体育</div>
+				<div class="swiper-slide"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/28/list_28_1_20.htm?tag=25';"
+					style="">生态</div>
+				<div class="swiper-slide word5"
+					onclick="javascript:location.href='http://m.china.com.cn/1/wm2/13232/list_13232_1_20.htm?tag=26';"
+					style="">军情24小时</div>
+				<div class="swiper-slide" style=""></div>
+			</div>
+			<div id="nav-btn" class="nav-btn">
+				<img src="index/upArrow.png">
+			</div>
+		</div>
+		<div class="nav-tags">
+			<div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/">推荐</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/3/list_3_1_20.htm?tag=2">要闻</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://wx.china.cn/scene/content/list/100000003?tag=3">直播</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://wx.china.cn/scene/content/list/100000002?tag=4">新闻眼</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/13234/list_13234_1_20.htm?tag=13">中国3分钟</a>
+				</div>
+
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/6/list_6_1_20.htm?tag=5">观点</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/18/list_18_1_20.htm?tag=6">国际</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/8/list_8_1_20.htm?tag=7">军事</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/13174/list_13174_1_20.htm?tag=16">中外观</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/13232/list_13232_1_20.htm?tag=26">军情24小时</a>
+				</div>
+
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/11/list_11_1_20.htm?tag=8">财经</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/34/list_34_1_20.htm?tag=9">图片</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/20/list_20_1_20.htm?tag=10">社会</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/245573/list_245573_1_20.htm?tag=21">碰词儿</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/245574/list_245574_1_20.htm?tag=20">中国精神</a>
+				</div>
+
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/9/list_9_1_20.htm?tag=11">旅游</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/26/list_26_1_20.htm?tag=12">扶贫</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/274629/list_274629_1_20.htm?tag=14">帧像</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/13229/list_13229_1_20.htm?tag=15">世相</a>
+				</div>
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/202031/list_202031_1_20.htm?tag=19">Hi
+						中国人</a>
+				</div>
+
+				<div class="nav-tag">
+					<a
+						href="http://m.china.com.cn/1/wm2/17629/list_17629_1_20.htm?tag=17">呈现</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/10/list_10_1_20.htm?tag=18">艺术</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/12/list_12_1_20.htm?tag=22">教育</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/29/list_29_1_20.htm?tag=23">娱乐</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/15/list_15_1_20.htm?tag=24">体育</a>
+				</div>
+				<div class="nav-tag">
+					<a href="http://m.china.com.cn/1/wm2/28/list_28_1_20.htm?tag=25">生态</a>
+				</div>
+
+				<div style="clear: both;"></div>
+			</div>
+		</div>
+		<!-- scl -->
+		<!-- scl -->
+		<div class="new_img">
+			<div class="scroll relative">
+				<div class="scroll_box" id="scroll_img" style="visibility: visible;">
+					<ul class="scroll_wrap" style="width: 5120px;">
+						<li
+							style="width: 640px; left: 0px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="0"><a
+							href="http://m.china.com.cn/wm/doc_1_34_493533.html"> <img
+								src="index/60641505206913608_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/60641505206913608.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>1/8</div>
+									</div>
+									<div class="title ell">第14届中国—东盟博览会开幕[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -640px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="1"><a
+							href="http://m.china.com.cn/wm/doc_1_16_492878.html"> <img
+								src="index/32912c088958569d_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_12/07/32912c088958569d.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>2/8</div>
+									</div>
+									<div class="title ell">和平方舟医院船停靠西班牙[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -1280px; transition-duration: 300ms; transform: translateX(0px);"
+							data-index="2"><a
+							href="http://m.china.com.cn/wm/doc_1_16_492879.html"> <img
+								src="index/ef24e8e5d249fa8e_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_12/07/ef24e8e5d249fa8e.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>3/8</div>
+									</div>
+									<div class="title ell">瑞士两列火车相撞约30人受伤[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -1920px; transition-duration: 0ms; transform: translateX(640px);"
+							data-index="3"><a
+							href="http://m.china.com.cn/wm/doc_1_16_492880.html"> <img
+								src="index/5a8ffa48bb3b106e_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_12/07/5a8ffa48bb3b106e.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>4/8</div>
+									</div>
+									<div class="title ell">香港举办第二届“一带一路”高峰论坛[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -2560px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="4"><a
+							href="http://m.china.com.cn/wm/doc_1_16_492881.html"> <img
+								src="index/5ab721c33cf2e9b7_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_12/07/5ab721c33cf2e9b7.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>5/8</div>
+									</div>
+									<div class="title ell">洛杉矶“旗海”悼念“9·11”事件遇难者[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -3200px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="5"><a
+							href="http://m.china.com.cn/wm/doc_1_16_492268.html"> <img
+								src="index/2c2e71373c5750fc_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_11/11/2c2e71373c5750fc.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>6/8</div>
+									</div>
+									<div class="title ell">比利时举办第40届国际萨尼科尔飞行表演[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -3840px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="6"><a
+							href="http://m.china.com.cn/wm/doc_1_16_491812.html"> <img
+								src="index/528879a6107fc9ff_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_11/08/528879a6107fc9ff.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>7/8</div>
+									</div>
+									<div class="title ell">2017世界物联网博览会在无锡开幕[组图]</div>
+								</div>
+							</div></li>
+						<li
+							style="width: 640px; left: -4480px; transition-duration: 300ms; transform: translateX(-640px);"
+							data-index="7"><a
+							href="http://m.china.com.cn/wm/doc_1_16_491811.html"> <img
+								src="index/11f5e4f53464ccf7_640_360.jpg"
+								onerror="javascript:this.src='http://images8.m.china.com.cn/mchina/img211/2017_09_11/08/11f5e4f53464ccf7.jpg';"
+								width="100%">
+						</a>
+							<div class="scroll_position_bg">
+								<div class="block">
+									<div class="count">
+										<div>8/8</div>
+									</div>
+									<div class="title ell">埃及发现距今约3400年阿蒙神金匠墓[组图]</div>
+								</div>
+							</div></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--scroll-->
+		<div class="new_img_span">
+			<ul class="scroll_position" id="scroll_position"
+				style="height: 10px; vertical-align: top;">
+				<li class=" "><a href="javascript:void(0);">1</a></li>
+				<div style="width: 2%; height: 6px; float: left;"></div>
+				<li class=" "><a href="javascript:void(0);">2</a></li>
+				<div style="width: 2%; height: 6px; float: left;"></div>
+				<li class="on"><a href="javascript:void(0);">3</a></li>
+				<li class=" "><a href="javascript:void(0);">4</a></li>
+				<li class=" "><a href="javascript:void(0);">5</a></li>
+				<li class=" "><a href="javascript:void(0);">6</a></li>
+				<li class=" "><a href="javascript:void(0);">7</a></li>
+				<li class=" "><a href="javascript:void(0);">8</a></li>
+			</ul>
+		</div>
+		<script> 
+        var slider = Swipe(document.getElementById('scroll_img'), {
+            auto: 3000,
+            continuous: true,
+            callback: function(pos) {
+                var i = bullets.length;
+                while (i--) {
+                    bullets[i].className = ' ';
+                }
+                bullets[pos].className = 'on';
+            }
+        });
+        var bullets = document.getElementById('scroll_position').getElementsByTagName('li');
+        
+        </script>
+		<!-- scl -->
+
+		<div id="roller"
+			class="swiper-container roller swiper-container-vertical swiper-container-3d swiper-container-flip"
+			style="cursor: grab;">
+			<div class="swiper-wrapper" style="transition-duration: 0ms;">
+				<div class="swiper-slide swiper-slide-duplicate"
+					data-swiper-slide-index="3"
+					style="height: 28px; z-index: 5; transform: translate3d(0px, 0px, 0px) rotateX(180deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_490745.html" title="">
+						<span>关注</span> 『2017.09.09』 轻松早茶
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 1; transition-duration: 0ms;"></div>
+				</div>
+				<div class="swiper-slide" data-swiper-slide-index="0"
+					style="height: 28px; z-index: 5; transform: translate3d(0px, -28px, 0px) rotateX(180deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_493079.html" title="">
+						<span>关注</span> 出售在华超市?乐天紧急澄清:决不放弃在华业务
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 1; transition-duration: 0ms;"></div>
+				</div>
+				<div class="swiper-slide swiper-slide-prev"
+					data-swiper-slide-index="1"
+					style="height: 28px; z-index: 5; transform: translate3d(0px, -56px, 0px) rotateX(180deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_492915.html" title="">
+						<span>关注</span> 美最高法:法庭审议期维持特朗普旅行禁令
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 1; transition-duration: 0ms;"></div>
+				</div>
+				<div class="swiper-slide swiper-slide-active"
+					data-swiper-slide-index="2"
+					style="height: 28px; z-index: 6; transform: translate3d(0px, -84px, 0px) rotateX(0deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_492903.html" title="">
+						<span>关注</span> 北京市旅游委：“十一”黄金周各景区须严控流量
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+				</div>
+				<div class="swiper-slide swiper-slide-next"
+					data-swiper-slide-index="3"
+					style="height: 28px; z-index: 5; transform: translate3d(0px, -112px, 0px) rotateX(-180deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_490745.html" title="">
+						<span>关注</span> 『2017.09.09』 轻松早茶
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 1; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+				</div>
+				<div class="swiper-slide swiper-slide-duplicate"
+					data-swiper-slide-index="0"
+					style="height: 28px; z-index: 5; transform: translate3d(0px, -140px, 0px) rotateX(-180deg) rotateY(0deg); transition-duration: 0ms;">
+					<a href="http://m.china.com.cn/wm/doc_1_24_493079.html" title="">
+						<span>关注</span> 出售在华超市?乐天紧急澄清:决不放弃在华业务
+					</a>
+					<div class="swiper-slide-shadow-top"
+						style="opacity: 1; transition-duration: 0ms;"></div>
+					<div class="swiper-slide-shadow-bottom"
+						style="opacity: 0; transition-duration: 0ms;"></div>
+				</div>
+			</div>
+		</div>
+
+		<!-- scl -->
+
+		<!-- 引导下载app部分 -->
+		<div id="force_download" class="force_download">
+			<img id="force_download_img" src="index/logo_ad.png">
+			<div class="force_download_text">
+				<p class="force_download_title" data-node="appName">中国网客户端</p>
+				<p class="force_download_desc">国家重点新闻网站，9语种权威发布</p>
+			</div>
+			<a
+				href="javascript:downDPlusEvent('close');$('#force_download').css('display','none');$('.page').css('margin-bottom','0rem');">
+				<img class="force_download_close" src="index/appDownClosed.png">
+			</a> <a
+				href="javascript:downDPlusEvent('open');location.href='http://app.china.com.cn';"
+				target="_blank"> <span id="down_btn" class="force_download_btn">打开查看</span>
+			</a>
+		</div>
+
+		<div class="node">
+			<ul id="list">
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493543.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/32961505198366132_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493543.html">习近平“关键一招”
+								开创深改崭新局面</a>
+						</div>
+						<div class="source">
+							<div class="s">央视网</div>
+							<div class="t">09-12 14:39</div>
+							<div class="tag1">置顶</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493533.html">第14届中国—东盟博览会开幕[组图]</a>
+					</div>
+					<div class="lpic">
+						<div class="t_pic">
+							<img src="index/picicon.png">
+						</div>
+						<a href="http://m.china.com.cn/wm/doc_1_3_493533.html"><img
+							src="index/load.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/60641505206913608_640_360.jpg"
+							class="lazy-load"></a>
+					</div>
+					<div class="pic3source">
+						<div class="s">中国网</div>
+						<div class="t">09-12 14:22</div>
+						<div class="tag1">置顶</div>
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493798.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/23781505207405025_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493798.html">多地将采用“3+3”高考模式
+								物理科目遭“冷遇”</a>
+						</div>
+						<div class="source">
+							<div class="s">央视新闻客户端</div>
+							<div class="t">09-12 17:09</div>
+							<div class="tag1">置顶</div>
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<!-- cpu feeds block -->
+				<!--                 <li>
+                    <div class="cpu-feeds-block" data-site-id="269166448" data-block-id="1328"></div>
+                    <script>
+                    (function(){var c="http://cpu.baidu.com";var a=function(){var e=document.createElement("script");e.id="cpu-block-entry";e.src=c+"/js/cb.js";document.head.appendChild(e)};var b=function(g){var h={msg:g.toString()||"no err msg",line:g.lineno||-1};var f=document.createElement("img");f.src=c+"/msg?m=block&e="+encodeURIComponent(JSON.stringify(h))};try{window.feedsbycpu=window.feedsbycpu||[];window.feedsbycpu.push({siteId:'269166448',blockId:'1328',display:"auto"});document.getElementById("cpu-block-entry")||a()}catch(d){b(d)}})();
+                    </script>
+                </li>  -->
+				<!-- cpu feeds block end-->
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493891.html" title=""><img
+							src="index/load290.jpg" data-original="" class="lazy-load"
+							style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493891.html">东盟博览会中文联合食品展台备受文莱王室关注</a>
+						</div>
+						<div class="source">
+							<div class="s">味库全球美食</div>
+							<div class="t">09-12 22:52</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493886.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/6651505225472130_240_176.png"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493886.html">CPI、PPI年内将保持大体平稳</a>
+						</div>
+						<div class="source">
+							<div class="s">中国经济时报</div>
+							<div class="t">09-12 22:11</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493885.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/2017_09_12/22/53acb369970deb11318002bdde4aa0b3dd506a608a6f5b11_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493885.html">从中企500强榜单看产业结构调整：新产业发展后劲十足</a>
+						</div>
+						<div class="source">
+							<div class="s">中国经济网</div>
+							<div class="t">09-12 22:06</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493887.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/52141505225998527_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493887.html">【理上网来·喜迎十九大】国际政要学者点赞中国共产党执政能力
+							</a>
+						</div>
+						<div class="source">
+							<div class="s">中国日报网</div>
+							<div class="t">09-12 21:25</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493884.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/3201505225017507_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493884.html">群主任性时代可能一去不返</a>
+						</div>
+						<div class="source">
+							<div class="s">人民网</div>
+							<div class="t">09-12 21:07</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493863.html">国家版权局约谈音乐服务商:要求全面授权广泛传播音乐作品</a>
+					</div>
+					<div class="summary">
+
+						9月12日，国家新闻出版广电总局（国家版权局）版权管理司就网络音乐版权有关问题约谈了腾讯音乐、阿里音乐、网易云音乐、百度太合音乐主要负责人。版权
+						管理司负责人指出，2015年国家版权局组织开展规范网络音乐版权秩序专项整治以来，各互联网音乐服务商积极支持配合国家版权局相关工作，及时
+					</div>
+					<div class="pic3source">
+						<div class="s">中国网</div>
+						<div class="t">09-12 18:55</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493862.html">男子横穿北京东二环主路被撞身亡
+							司机未酒驾</a>
+					</div>
+					<div class="summary">原标题：北京一男子横穿二环主路遭小轿车碰撞致死，经检测司机未酒驾
+						通报全文如下：2017年9月12日11时30分许，在东城区东二环主路广渠门桥
+						下，关某（男，30岁，北京市人）驾驶小型轿车由北向南行驶时，适有程某某（男，29岁，河北省邯郸市人）由西向东步行横穿二环主路，小型轿车与程某某发
+						生碰撞，造成程某某倒地死亡。</div>
+					<div class="pic3source">
+						<div class="s">中国网</div>
+						<div class="t">09-12 18:52</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li index="doc_11">
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493861.html">《让改革落地生根》第二集：脱贫奔小康路上不落下一人</a>
+					</div>
+					<div class="lvideo">
+						<div class="v_pic">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493861.html"><img
+								src="index/play.png"></a>
+						</div>
+						<a href="http://m.china.com.cn/wm/doc_1_3_493861.html"><img
+							src="index/video.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/ueditor/20170912/2091505213528870_640_360.png"
+							class="lazy-load"></a>
+					</div>
+					<div class="pic3source">
+						<div class="s">河南卫视</div>
+						<div class="t">09-12 18:52</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493852.html">22个文创项目集中签约155.9亿
+							中外合作超四成</a>
+					</div>
+					<div class="summary">
+						2017年9月12日，第十二届北京文博会“文化创意产业重点项目签约仪式”在京举行。此次签约项目共计22个，签约单位47家，来自北京...
+					</div>
+					<div class="pic3source">
+						<div class="s">中国网</div>
+						<div class="t">09-12 18:32</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493822.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/2017_09_12/17/342bc364bb9301c4f11966c49502af36de8c8e26a0178afe_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493822.html">中科院强磁场科学中心八位海归科学家:与世界顶尖选手并跑的人</a>
+						</div>
+						<div class="source">
+							<div class="s">中国经济网</div>
+							<div class="t">09-12 17:36</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="pic">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493814.html" title=""><img
+							src="index/load290.jpg"
+							data-original="http://images8.m.china.com.cn/mchina/img72/2017_09_12/17/765bf31cebba1c0068bf607bcb229dbcfa654f9c77aba653_240_176.jpg"
+							class="lazy-load" style="display: block;"></a>
+					</div>
+					<div class="info">
+						<div class="title">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493814.html">“白求恩奖章”获得者王焕云：抗艾一线16年
+								三个“第一”背后的故事</a>
+						</div>
+						<div class="source">
+							<div class="s">央视网</div>
+							<div class="t">09-12 17:34</div>
+
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493824.html">印度12名渔民被斯里兰卡海军抓扣</a>
+					</div>
+					<div class="summary">
+						据全印广播电台１２日报道，斯里兰卡海军１１日晚抓扣了来自印度泰米尔纳德邦的至少１２名渔民和他们的渔船。</div>
+					<div class="pic3source">
+						<div class="s">新华社</div>
+						<div class="t">09-12 17:29</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493819.html">新闻分析：西奈恐袭显示“伊斯兰国”新动向</a>
+					</div>
+					<div class="summary">
+						“伊斯兰国”２０１４年在伊拉克和叙利亚崛起后，活跃在西奈半岛的极端组织立即宣布效忠“伊斯兰国”并成立“西奈分支”，成为“伊斯兰国”在伊拉克和叙利亚之外成立最早和最大的分支。
+					</div>
+					<div class="pic3source">
+						<div class="s">新华社</div>
+						<div class="t">09-12 17:29</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493821.html">地缘紧张局势缓解推动东京股市收涨</a>
+					</div>
+					<div class="summary">
+						受地缘紧张局势缓解及外汇市场日元贬值等因素影响，日本东京股市１２日继续反弹，日经２２５种股票平均价格指数较前一个交易日上涨１．１８％。
+					</div>
+					<div class="pic3source">
+						<div class="s">新华社</div>
+						<div class="t">09-12 17:28</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493807.html">中国助力全球各国应对荒漠化：共克难题
+							共享经验</a>
+					</div>
+					<div class="summary">综述：共克难题 共享经验——中国助力全球各国应对荒漠化
+						在蒙加看来，本次缔约方大会在中国内蒙古举行显示了中国以及中国政府的领导力，同时这种领导力还体现在中国采取的一系列治沙行动上。</div>
+					<div class="pic3source">
+						<div class="s">新华社</div>
+						<div class="t">09-12 17:07</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+				<li>
+					<div class="p3title">
+						<a href="http://m.china.com.cn/wm/doc_1_3_493806.html">中国"最年轻大学"今日揭牌
+							学生:很幸运成为第一届新生</a>
+					</div>
+					<div class="pic3">
+						<div class="item">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493806.html"><img
+								src="index/load290.jpg"
+								data-original="http://images8.m.china.com.cn/mchina/img211/2017_09_12/17/c9278f4e556f2e529f846aa947d8b1aa80fbdaa04a99f97e_240_176.jpg"
+								class="lazy-load"></a>
+						</div>
+						<div class="item">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493806.html"><img
+								src="index/load290.jpg"
+								data-original="http://images8.m.china.com.cn/mchina/img211/2017_09_12/17/d2081810a8e9fa30a053aca984c69da3a95d97012b90f24a_240_176.jpg"
+								class="lazy-load"></a>
+						</div>
+						<div class="item">
+							<a href="http://m.china.com.cn/wm/doc_1_3_493806.html"><img
+								src="index/load290.jpg"
+								data-original="http://images8.m.china.com.cn/mchina/img211/2017_09_12/17/73cc636afb3ebb66f39a5563b6966d25e20e4f3bcc70f26b_240_176.jpg"
+								class="lazy-load"></a>
+						</div>
+						<div class="clear"></div>
+					</div>
+					<div class="pic3source">
+						<div class="s">中国网</div>
+						<div class="t">09-12 17:07</div>
+
+						<div class="clear"></div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div id="footer" class="hidden">
+			<div class="fg"></div>
+			<div class="dy">
+				<div class="line1">
+					<a href="http://m.china.com.cn/index.htm">中文</a> | <a
+						href="http://m.china.org.cn/">English</a> | <a
+						href="http://m.french.china.org.cn/french/index.html">Français</a>
+					| <a href="http://m.german.china.org.cn/german/index.html">Deutsch</a>
+					| <a href="http://m.japanese.china.org.cn/japanese/index.html">日本語</a>
+				</div>
+				<div class="line2">
+					<a href="http://m.russian.china.org.cn/russian/index.html">Русский
+						язык</a> | <a href="http://m.spanish.china.org.cn/spanish/index.html">Español</a>
+					| <a href="http://m.arabic.china.org.cn/arabic/index.html">عربي</a>
+					| <a href="http://m.korean.china.org.cn/korean/index.html">한국어</a>
+				</div>
+			</div>
+			<div class="search">
+				<div class="box">
+					<form action="http://www.baidu.com/baidu" target="_blank">
+						<input name="tn" value="baidu" type="hidden"> <input
+							name="cl" value="3" type="hidden"> <input name="ct"
+							value="2097152" type="hidden"> <input name="si"
+							value="www.china.com.cn" type="hidden">
+						<div class="s_text">
+							<input name="word" class="text" type="text">
+						</div>
+						<div class="s_sub">
+							<input class="submit" value="站内搜索" type="submit">
+						</div>
+						<div class="clear"></div>
+					</form>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="v">
+					<a href="#">触屏版</a> | <a href="http://www.china.com.cn/?f=pad">PC版</a>
+				</div>
+				<div class="zzw">© 中国网</div>
+				<div class="dh">
+					<a href="http://m.china.com.cn/common/other/an.html"><img
+						src="index/dh_1.png"></a>
+				</div>
+				<div style="display: none">
+					<script type="text/javascript">var cnzz_protocol = 
+(("https:" == document.location.protocol) ? " https://" : " 
+http://");document.write(unescape("%3Cspan 
+id='cnzz_stat_icon_1256866054'%3E%3C/span%3E%3Cscript src='" + 
+cnzz_protocol + "s95.cnzz.com/stat.php%3Fid%3D1256866054%26show%3Dpic1' 
+type='text/javascript'%3E%3C/script%3E"));</script>
+					<span id="cnzz_stat_icon_1256866054"><a
+						href="http://www.cnzz.com/stat/website.php?web_id=1256866054"
+						target="_blank" title="站长统计"><img src="index/pic1.gif"
+							vspace="0" hspace="0" border="0"></a></span>
+					<script src="index/stat.php" type="text/javascript"></script>
+					<script src="index/core_002.php" charset="utf-8"
+						type="text/javascript"></script>
+					<span id="cnzz_stat_icon_1256866054"><a
+						href="http://www.cnzz.com/stat/website.php?web_id=1256866054"
+						target="_blank" title="站长统计"><img src="index/pic1.gif"
+							vspace="0" hspace="0" border="0"></a></span>
+					<script src="index/stat.php" type="text/javascript"></script>
+					<script src="index/core_002.php" charset="utf-8"
+						type="text/javascript"></script>
+					<script src="index/core_002.php" charset="utf-8"
+						type="text/javascript"></script>
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+	
+	<script type="text/javascript" charset="utf-8">
+        //新闻中心的推广，图片延迟加载
+        $(function() {
+            $("img.lazy-load").lazyload({
+                effect : "fadeIn"
+            });
+        });
+    </script>
+
+</body>
+</html>
